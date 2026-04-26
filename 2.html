@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>IBM HR Attrition Report</title>
+
+    <style>
+      /* ===== GLOBAL ===== */
+      body {
+        margin: 0;
+        font-family: "Inter", Arial, sans-serif;
+        background: #0f172a;
+        color: #e5e7eb;
+        line-height: 1.7;
+      }
+
+      /* ===== BACKGROUND ===== */
+      body::before {
+        content: "";
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background:
+          radial-gradient(
+            circle at 20% 20%,
+            rgba(74, 108, 247, 0.15),
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 80% 60%,
+            rgba(0, 200, 255, 0.08),
+            transparent 40%
+          );
+        z-index: -1;
+      }
+
+      /* ===== NAV ===== */
+      .nav {
+        max-width: 1100px;
+        margin: auto;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav a {
+        color: #94a3b8;
+        margin-left: 15px;
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      /* ===== CONTAINER ===== */
+      .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 60px 20px;
+      }
+
+      /* ===== TITLE ===== */
+      .title-small {
+        font-size: 13px;
+        color: #94a3b8;
+      }
+
+      h1 {
+        font-size: 22px;
+        margin-top: 5px;
+      }
+
+      /* ===== BOX ===== */
+      .box {
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 14px;
+        padding: 25px;
+        margin: 30px 0;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      /* ===== SECTION TITLE ===== */
+      .section-title {
+        margin: 100px 0 20px;
+        font-size: 20px;
+        border-left: 4px solid #4a6cf7;
+        padding-left: 10px;
+      }
+
+      /* ===== ANALYSIS SECTION ===== */
+      .analysis-section {
+        display: flex;
+        gap: 60px;
+        align-items: center;
+        margin: 80px 0;
+      }
+
+      .image-side img {
+        width: 100%;
+        border-radius: 12px;
+      }
+
+      .text-side ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .text-side li {
+        margin-bottom: 15px;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .text-side li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #4a6cf7;
+      }
+
+      strong {
+        color: #60a5fa;
+      }
+
+      /* ===== RISK ===== */
+      .risk {
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        padding: 30px;
+        border-radius: 16px;
+        text-align: center;
+        margin: 100px 0;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        text-align: center;
+        padding: 40px;
+        color: #64748b;
+      }
+
+      /* ===== ANIMATION ===== */
+      .fade {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.6s;
+      }
+
+      .fade.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===== MOBILE ===== */
+      @media (max-width: 768px) {
+        .analysis-section {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAV -->
+    <div class="nav">
+      <div>HR Analytics</div>
+      <div>
+        <a href="#summary">Summary</a>
+        <a href="#analysis">Analysis</a>
+        <a href="#risk">Risk</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- TITLE -->
+      <p class="title-small">IBM HR Attrition Analysis</p>
+      <h1>Comprehensive Report</h1>
+
+      <!-- EXECUTIVE SUMMARY -->
+      <div id="summary" class="box fade">
+        <strong>Executive Summary</strong><br /><br />
+
+        This report analyzes a dataset of <strong>1,470 employees</strong> to
+        identify attrition drivers.
+
+        <br /><br />
+
+        The data shows that attrition is primarily driven by
+        <strong>overtime</strong>, with the highest risk concentrated in
+        <strong>Sales employees (38%)</strong>.
+
+        <br /><br />
+
+        Income disparity acts as an amplifier, increasing the likelihood of
+        resignation when combined with workload pressure.
+
+        <br /><br />
+
+        The recommended action is to restructure sales workload and conduct
+        targeted salary adjustments.
+      </div>
+
+      <!-- METHODOLOGY -->
+      <div class="box fade">
+        <strong>Data & Methodology</strong><br /><br />
+
+        Dataset: IBM HR (1,470 rows, 35 columns)<br />
+        Tools: Power BI, DAX<br />
+        Approach: Rates and averages instead of raw counts, with cross-analysis
+        (Department + Overtime)
+      </div>
+
+      <!-- ANALYSIS 1 -->
+      <div id="analysis" class="analysis-section fade">
+        <div class="image-side">
+          <img src="1.png" />
+        </div>
+
+        <div class="text-side">
+          <ul>
+            <li>Overtime employees show <strong>31%</strong> attrition</li>
+            <li>Non-overtime only <strong>10%</strong></li>
+            <li>Workload is the strongest observable factor</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ANALYSIS 2 -->
+      <div class="analysis-section fade">
+        <div class="image-side">
+          <img src="2.png" />
+        </div>
+
+        <div class="text-side">
+          <ul>
+            <li>Leavers earn <strong>$4,899</strong> on average</li>
+            <li>Stayers earn <strong>$6,669</strong></li>
+            <li><strong>26.5%</strong> income gap increases risk</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ANALYSIS 3 -->
+      <div class="analysis-section fade">
+        <div class="image-side">
+          <img src="3.png" />
+        </div>
+
+        <div class="text-side">
+          <ul>
+            <li>HR attrition: <strong>15%</strong></li>
+            <li>Sales: <strong>14%</strong></li>
+            <li>R&D lowest at <strong>9%</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RISK -->
+      <div id="risk" class="risk fade">
+        <h2>High Risk Segment</h2>
+        <p>
+          Sales employees under overtime reach <strong>38%</strong> attrition
+          (128 out of 446)
+        </p>
+      </div>
+
+      <!-- RECOMMENDATIONS -->
+      <div class="section-title">Recommendations</div>
+
+      <div class="box fade">
+        <strong>1. Sales Quota Review</strong><br />
+        Investigate workload pressure causing excessive overtime.
+      </div>
+
+      <div class="box fade">
+        <strong>2. Overtime Restructuring</strong><br />
+        Introduce incentive-based or optional overtime.
+      </div>
+
+      <div class="box fade">
+        <strong>3. Salary Adjustment</strong><br />
+        Target employees below $5,000 exposed to overtime.
+      </div>
+    </div>
+
+    <footer>HR Analytics Portfolio • Asmaa</footer>
+
+    <script>
+      /* SCROLL ANIMATION */
+      const elements = document.querySelectorAll(".fade");
+
+      window.addEventListener("scroll", () => {
+        elements.forEach((el) => {
+          const pos = el.getBoundingClientRect().top;
+          if (pos < window.innerHeight - 50) {
+            el.classList.add("show");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

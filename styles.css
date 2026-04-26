@@ -1,0 +1,279 @@
+ /* ===== GLOBAL ===== */
+ body {
+     margin: 0;
+     font-family:
+         "Inter",
+         -apple-system,
+         Arial,
+         sans-serif;
+     background: #0f172a;
+     color: #cbd5e1;
+     /* لون رمادي فاتح مريح للعين */
+     line-height: 1.8;
+ }
+
+ /* ===== BACKGROUND ===== */
+ body::before {
+     content: "";
+     position: fixed;
+     width: 100%;
+     height: 100%;
+     background:
+         radial-gradient(circle at 20% 20%,
+             rgba(74, 108, 247, 0.15),
+             transparent 40%),
+         radial-gradient(circle at 80% 60%,
+             rgba(0, 200, 255, 0.08),
+             transparent 40%);
+     z-index: -1;
+ }
+
+
+ /* ===== CONTAINER ===== */
+ .container {
+     max-width: 900px;
+     margin: auto;
+     padding: 60px 25px;
+ }
+
+ /* ===== 1. TITLE (صغير فوق) ===== */
+ .report-header {
+     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+     padding-bottom: 20px;
+     margin-bottom: 50px;
+ }
+
+ .report-header h1 {
+     font-size: 24px;
+     color: white;
+     margin: 0 0 5px 0;
+ }
+
+ .report-header span {
+     font-size: 13px;
+     color: #64748b;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+ }
+
+ /* ===== 2. EXECUTIVE SUMMARY ===== */
+ .summary {
+     font-size: 17px;
+     margin-bottom: 40px;
+ }
+
+ .summary strong {
+     color: #f8fafc;
+     display: block;
+     margin-bottom: 10px;
+ }
+
+ /* ===== 3. METHODOLOGY BOX ===== */
+ .method-box {
+     background: rgba(255, 255, 255, 0.03);
+     border: 1px solid rgba(255, 255, 255, 0.06);
+     border-radius: 10px;
+     padding: 20px;
+     margin-bottom: 80px;
+     font-size: 14px;
+     color: #94a3b8;
+ }
+
+ .method-box strong {
+     color: #e2e8f0;
+ }
+
+ /* ===== 4. SECTIONS (صورة + تحليل) ===== */
+ .section {
+     margin-bottom: 80px;
+ }
+
+ .section-title {
+     font-size: 20px;
+     color: white;
+     margin: 0 0 30px 0;
+     border-left: 3px solid #4a6cf7;
+     padding-left: 15px;
+ }
+
+ .content-wrapper {
+     display: flex;
+     gap: 40px;
+     align-items: flex-start;
+ }
+
+ /* عشان الصور تتبدل مكانها (يمين ويسار) */
+ .content-wrapper.reverse {
+     flex-direction: row-reverse;
+ }
+
+ .image-side {
+     flex: 1.2;
+     min-width: 0;
+ }
+
+ /* الصورة */
+ .image-side img {
+     width: 100%;
+     height: 300px;
+     object-fit: contain;
+     /* 👈 هذا هو الحل */
+
+     border-radius: 12px;
+
+     display: block;
+ }
+
+ .text-side {
+     flex: 1;
+     min-width: 0;
+ }
+
+ .text-side p {
+     margin: 0 0 15px 0;
+ }
+
+ .text-side .label {
+     color: #64748b;
+     font-size: 12px;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     margin-bottom: 5px;
+ }
+
+ .text-side .impact {
+     margin-top: 20px;
+     padding-top: 15px;
+     border-top: 1px dashed rgba(255, 255, 255, 0.1);
+     color: #fbbf24;
+     /* أصفر هادي للـ Impact */
+     font-style: italic;
+     font-size: 15px;
+ }
+
+ .highlight {
+     color: #60a5fa;
+     font-weight: 600;
+ }
+
+ /* ===== 7. RISK ALERT ===== */
+ .risk-alert {
+     background: rgba(239, 68, 68, 0.08);
+     border: 1px solid rgba(239, 68, 68, 0.3);
+     border-radius: 16px;
+     padding: 40px;
+     text-align: center;
+     margin-bottom: 80px;
+ }
+
+ .risk-alert h2 {
+     color: #f87171;
+     margin: 0 0 15px 0;
+     font-size: 22px;
+ }
+
+ .risk-alert p {
+     margin: 0;
+     font-size: 16px;
+     color: #e2e8f0;
+ }
+
+ /* ===== 8. RECOMMENDATIONS ===== */
+ .rec-list {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+ }
+
+ .rec-list li {
+     background: rgba(255, 255, 255, 0.03);
+     border: 1px solid rgba(255, 255, 255, 0.06);
+     border-radius: 10px;
+     padding: 20px;
+     margin-bottom: 15px;
+     border-left: 3px solid #4a6cf7;
+ }
+
+ .rec-list h4 {
+     margin: 0 0 8px 0;
+     color: white;
+     font-size: 16px;
+ }
+
+ .rec-list p {
+     margin: 0;
+     font-size: 15px;
+ }
+
+ /* ===== DOWNLOAD GRID ===== */
+
+
+ .download-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 20px;
+     margin-top: 30px;
+     margin: 20px 90px;
+ }
+
+ .section-titlle {
+     margin-left: 90px;
+ }
+
+ /* ===== DOWNLOAD CARD ===== */
+ .download-card {
+     display: block;
+     text-decoration: none;
+     background: rgba(255, 255, 255, 0.04);
+     border: 1px solid rgba(255, 255, 255, 0.08);
+     border-radius: 14px;
+     padding: 15px;
+     transition: 0.3s;
+     color: #e5e7eb;
+ }
+
+ /* hover effect */
+ .download-card:hover {
+     transform: translateY(-6px);
+     border-color: #4a6cf7;
+     background: rgba(74, 108, 247, 0.08);
+ }
+
+ /* title */
+ .download-card h3 {
+     margin: 10px;
+     color: white;
+ }
+
+ /* description */
+ .download-card p {
+     margin: 0;
+     font-size: 14px;
+     color: #94a3b8;
+ }
+
+ /* ===== FOOTER ===== */
+ footer {
+     text-align: center;
+     padding: 40px 0;
+     color: #334155;
+     font-size: 12px;
+     border-top: 1px solid rgba(255, 255, 255, 0.05);
+     margin-top: 40px;
+ }
+
+ /* ===== RESPONSIVE ===== */
+ @media (max-width: 768px) {
+
+     .content-wrapper,
+     .content-wrapper.reverse {
+         flex-direction: column;
+     }
+
+     .image-side img {
+         height: auto;
+         /* ❌ احذفي الـ 300px */
+         max-height: 260px;
+         object-fit: contain;
+     }
+ }

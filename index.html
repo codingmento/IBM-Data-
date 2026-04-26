@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HR Attrition Intelligence Report</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- 1. TITLE -->
+      <div class="report-header">
+        <h1>IBM HR Attrition Analysis - Comprehensive Report</h1>
+        <span>Data Intelligence Portfolio • Power BI & DAX</span>
+      </div>
+
+      <!-- 2. EXECUTIVE SUMMARY -->
+      <div class="summary">
+        <strong>Executive Summary</strong>
+        This report analyzes a dataset of 1,470 employees to identify the key
+        drivers of employee attrition using evidence-based analysis.
+        <br /><br />
+        • <strong>The Core Issue:</strong> Attrition risk is primarily driven by
+        overtime, with the highest concentration in Sales employees exposed to
+        overtime (38%).<br />
+        • <strong>The Critical Combination:</strong> Sales employees working
+        overtime exhibit a significantly elevated 38% attrition rate (128 out of
+        446 employees in this segment), making them the most vulnerable
+        group.<br />
+        • <strong>The Solution:</strong> Immediate operational review of sales
+        quotas driving overtime, alongside a targeted salary audit.
+      </div>
+
+      <!-- 3. METHODOLOGY -->
+      <div class="method-box">
+        <strong>Data Understanding & Methodology</strong><br />
+        <strong>Data Source:</strong> IBM HR Analytics Dataset (1,470 rows, 35
+        columns).<br />
+        <strong>Tools Used:</strong> Power BI for data visualization, DAX for
+        advanced metrics, and exploratory data analysis.<br />
+        <strong>Analytical Approach:</strong> Descriptive & Cross-Analysis. The
+        analysis avoids raw counts in favor of Rates and Averages, combining
+        variables (e.g., Department + Overtime) to isolate specific risk
+        factors.
+      </div>
+
+      <!-- 4. SECTION 1 -->
+      <div class="section">
+        <h2 class="section-title">
+          A. Workload and Turnover (Observed Association)
+        </h2>
+        <div class="content-wrapper">
+          <div class="image-side">
+            <img src="1.png" alt="chart" />
+          </div>
+
+          <div class="text-side">
+            <p class="label">Finding</p>
+            <p>
+              Employees who work overtime exhibit an attrition rate of
+              <span class="highlight">31%</span>, compared to
+              <span class="highlight">10%</span> for those who do not.
+            </p>
+            <p class="impact">
+              Business Impact: Overtime shows the strongest observed association
+              with attrition in this dataset, serving as a primary indicator of
+              potential burnout.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. SECTION 2 -->
+      <div class="section">
+        <h2 class="section-title">
+          B. The Financial Disconnect (Income Disparity)
+        </h2>
+        <div class="content-wrapper reverse">
+          <div class="image-side">
+            <img src="2.png" alt="chart" />
+          </div>
+          <div class="text-side">
+            <p class="label">Finding</p>
+            <p>
+              Employees who left had an average monthly income of
+              <span class="highlight">$4,899</span>, compared to
+              <span class="highlight">$6,669</span> for those who stayed (a
+              <span class="highlight">26.5%</span> gap).
+            </p>
+            <p class="impact">
+              Business Impact: Lower compensation appears to reduce the
+              threshold for employee tolerance to other workplace stressors.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. SECTION 3 -->
+      <div class="section">
+        <h2 class="section-title">
+          C. Departmental Vulnerability & Cross-Analysis
+        </h2>
+        <div class="content-wrapper">
+          <div class="image-side">
+            <img src="3.png" alt="chart" />
+          </div>
+          <div class="text-side">
+            <p class="label">Finding</p>
+            <p>
+              Smaller departments suffer proportionally more. HR has a
+              <span class="highlight">15%</span> rate, and Sales has a
+              <span class="highlight">14%</span> rate, while the larger R&D
+              department has the lowest rate at
+              <span class="highlight">9%</span>.
+            </p>
+            <p style="margin-top: 15px">
+              Cross-referencing Overtime with Departments reveals that the
+              danger is not evenly distributed. Sales employees working overtime
+              have a
+              <span class="highlight">38% attrition rate (128 out of 446)</span
+              >, significantly higher than the company baseline.
+            </p>
+            <p class="impact">
+              Business Impact: The risk is heavily concentrated in the Sales
+              department under overtime conditions, suggesting a structural
+              issue (such as unrealistic sales quotas) rather than a
+              company-wide cultural problem.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. RISK ALERT -->
+      <div class="risk-alert">
+        <h2>⚠️ High-Risk Profile Identified</h2>
+        <p>
+          The highest risk is observed among employees who combine overtime work
+          with lower income levels, particularly within the Sales department.
+        </p>
+      </div>
+
+      <!-- 8. RECOMMENDATIONS -->
+      <div class="section">
+        <h2 class="section-title">Actionable Business Recommendations</h2>
+        <ul class="rec-list">
+          <li>
+            <h4>Priority 1: Sales Quota Audit</h4>
+            <p>
+              Analyze the workload distribution and quota structures for the
+              Sales department to understand why this specific segment requires
+              excessive overtime, directly correlating with the 38% attrition
+              rate.
+            </p>
+          </li>
+          <li>
+            <h4>Priority 2: Targeted Overtime Compensation</h4>
+            <p>
+              Implement an incentive-based model specifically for Sales and HR
+              (e.g., increased commission tied to overtime targets) to offset
+              the financial disparity.
+            </p>
+          </li>
+          <li>
+            <h4>Priority 3: Combined Risk Adjustment</h4>
+            <p>
+              Prioritize salary adjustments for employees earning below the
+              $5,000 threshold who are also exposed to overtime, addressing this
+              specific high-vulnerability segment.
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- DAX Note (صغير جداً تحت) -->
+      <div class="method-box" style="margin-bottom: 0">
+        <strong>Technical Implementation (DAX):</strong> <br />
+        Attrition Rate = DIVIDE( CALCULATE(COUNTROWS('HR_Data'),
+        'HR_Data'[Attrition] = "Yes"), COUNTROWS('HR_Data') )
+        <br /><br />
+        <strong>Limitations:</strong> This analysis is based on observational
+        data and identifies strong correlations, not direct causation.
+      </div>
+    </div>
+    <!-- ===== DOWNLOAD SECTION ===== -->
+    <div class="section">
+      <h2 class="section-titlle">Explore & Download</h2>
+
+      <div class="download-grid">
+        <!-- VIEW REPORT -->
+        <a href="IBM HR Attrition.pdf" target="_blank" class="download-card">
+          <h3>📄 View Report</h3>
+          <p>Open the full analysis in PDF format</p>
+        </a>
+        <!-- DOWNLOAD DATA -->
+        <a href="IBM.pbix" download class="download-card">
+          <h3>📊 Download Power BI File</h3>
+          <p>Open the full interactive dashboard in Power BI Desktop</p>
+        </a>
+      </div>
+    </div>
+    <footer>Data Analysis & Web Integration Portfolio • Built by Asmaa</footer>
+  </body>
+</html>
