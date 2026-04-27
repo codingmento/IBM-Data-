@@ -426,4 +426,22 @@
      .rec-list li {
          padding: 15px;
      }
+  .download-grid {
+    display: flex;              /* 👈 بدل grid */
+    flex-direction: column;     /* 👈 تحت بعض */
+    align-items: center;        /* 👈 بالنص */
+    gap: 15px;
+    margin: 20px 0;
+  }
+
+  .download-card {
+    width: 90%;                 /* 👈 ما يكون full عشان يبين مرتب */
+    max-width: 320px;
+    text-align: center;
+  }
+
+  .section-titlle {
+    text-align: center;         /* 👈 العنوان بالنص */
+    margin-left: 0;
+  }
  }
